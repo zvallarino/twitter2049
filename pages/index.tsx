@@ -9,6 +9,7 @@ import TimeAgo from 'javascript-time-ago'
 
 import en from 'javascript-time-ago/locale/en.json'
 import ru from 'javascript-time-ago/locale/ru.json'
+import { Toaster } from 'react-hot-toast'
 
 TimeAgo.addDefaultLocale(en)
 TimeAgo.addLocale(ru)
@@ -21,9 +22,11 @@ const Home = ({tweets}: Props) => {
 
   return (
     <div className="lg:max-w-6xl mx-auto max-h-screen overflow-hidden">
+
       <Head>
         <title>Twitter 2049</title>
       </Head>
+      <Toaster />
 
       <main className = 'grid grid-cols-9'>
         <Sidebar />
