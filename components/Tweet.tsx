@@ -18,6 +18,8 @@ interface Props {
 
 function Tweet({tweet}: Props) {
 
+  console.log(tweet._createdAt)
+
    const [comments, setComments] = useState<Comment[]>([])
    const [commentBoxVisible, setCommentBoxVisible] = useState<boolean>(false)
    const [input, setInput] = useState<string>('')
@@ -73,7 +75,8 @@ function Tweet({tweet}: Props) {
             <div className ='flex items-center space-x-1'>
               <p className = "mr-1 font-bold">{tweet.username}</p>
               <p className = 'gidden text-sm text-gray-500 sm:inline'>@{tweet.username.replace(/\s+/g, '').toLowerCase()} · </p>
-
+              
+      
               <TimeAgo 
               className ="text-sm text-gray-500"
               date = {tweet._createdAt}
