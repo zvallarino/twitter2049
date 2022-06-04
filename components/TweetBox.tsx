@@ -19,6 +19,7 @@ interface Props {
 
 function TweetBox({setTweets}: Props) {
 
+
   const [input, setInput] = useState<string>("")
   const [image, setImage] = useState<string>("")
 
