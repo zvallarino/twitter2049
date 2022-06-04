@@ -13,6 +13,10 @@ import { fetchComments } from '../utils/fetchComments'
 import { useSession } from 'next-auth/react'
 import toast from 'react-hot-toast'
 
+
+// @ts-nocheck
+
+
 interface Props {
   tweet: Tweet
 }
@@ -20,6 +24,8 @@ interface Props {
 
 function Tweet({tweet}: Props) {
 
+
+  console.log(tweet._createdAt)
    const [comments, setComments] = useState<Comment[]>([])
    const [commentBoxVisible, setCommentBoxVisible] = useState<boolean>(false)
    const [input, setInput] = useState<string>('')
@@ -76,10 +82,10 @@ function Tweet({tweet}: Props) {
               <p className = "mr-1 font-bold">{tweet.username}</p>
               <p className = 'gidden text-sm text-gray-500 sm:inline'>@{tweet.username.replace(/\s+/g, '').toLowerCase()} · </p>
               
-      
+              {/* @ts-ignore */}
               <ReactTimeAgo 
               className ="text-sm text-gray-500"
-              date = {tweet._createdAt}
+              date = {new Date(tweet._createdAt)}
               />
          
           
@@ -145,7 +151,7 @@ function Tweet({tweet}: Props) {
                       <p className = "hidden text-sm text-gray-500 lg:inline">@{comment.username.replace(/\s+/g, '').toLowerCase()} · </p>
                       <ReactTimeAgo 
                        className ="text-sm text-gray-500"
-                       date = {comment._createdAt}
+                       date = {new Date(comment._createdAt)}
                       />
 
                     </div>
