@@ -9,6 +9,7 @@
     "@heroicons/react": "^1.0.6",
     "@portabletext/react": "^1.0.6",
     "@sanity/image-url": "^1.0.1",
+    "@types/javascript-time-ago": "^2.0.3",
     "javascript-time-ago": "^2.5.4",
     "next": "latest",
     "next-auth": "^4.3.4",

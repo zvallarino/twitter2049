@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import { Comment,CommentBody, Tweet } from "../typings"
 import TimeAgo from "react-time-ago"
+import ReactTimeAgo from "react-time-ago"
 import { time } from 'console'
 import {
   ChatAlt2Icon,
@@ -16,9 +17,8 @@ interface Props {
   tweet: Tweet
 }
 
-function Tweet({tweet}: Props) {
 
-  console.log(tweet._createdAt)
+function Tweet({tweet}: Props) {
 
    const [comments, setComments] = useState<Comment[]>([])
    const [commentBoxVisible, setCommentBoxVisible] = useState<boolean>(false)
@@ -77,10 +77,12 @@ function Tweet({tweet}: Props) {
               <p className = 'gidden text-sm text-gray-500 sm:inline'>@{tweet.username.replace(/\s+/g, '').toLowerCase()} · </p>
               
       
-              <TimeAgo 
+              <ReactTimeAgo 
               className ="text-sm text-gray-500"
               date = {tweet._createdAt}
               />
+         
+          
 
             </div>
             <p className = "pt-1">{tweet.text}</p>
@@ -141,9 +143,9 @@ function Tweet({tweet}: Props) {
 
                       <p className = "mr-1 font-bold">{comment.username}</p>
                       <p className = "hidden text-sm text-gray-500 lg:inline">@{comment.username.replace(/\s+/g, '').toLowerCase()} · </p>
-                      <TimeAgo 
+                      <ReactTimeAgo 
                        className ="text-sm text-gray-500"
-                      date = {comment._createdAt}
+                       date = {comment._createdAt}
                       />
 
                     </div>
